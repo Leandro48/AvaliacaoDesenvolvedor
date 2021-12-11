@@ -1,0 +1,47 @@
+﻿@model AvaliacaoDesenvolvedor.Models.Contato
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Contato</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <td>@Html.DisplayFor(model => model.Id)</td>
+            <td>@Html.DisplayFor(model => model.Nome)</td>
+        </tbody>
+    </table>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Telefones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Telefones)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Numero)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista</a>
+</div>

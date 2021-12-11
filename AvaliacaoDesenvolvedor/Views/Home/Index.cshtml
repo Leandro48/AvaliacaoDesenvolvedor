@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="text-center">
+        <h1 class="display-4">Bem vindo</h1>
+        <p>Siga meu <a href="https://github.com/Leandro48">GitHub</a>.</p>
+    </div>
+    <br/>
+    <p class="lead">
+        O software apresenta todas as funcionalidades requisitadas.
+    </p>
+    <hr class="my-4">
+    <p>
+        Desenvolvido em .NET Core, utilizando Migrations, Data Annotation e Entity Framework.
+    </p>
+    <h3>Funcionalidades do Sistema</h3>
+    <ul>
+        <li>A tela de contatos adiciona um novo contato, onde o campo nome é obrigatório.</li>
+        <li>A tela de telefones adiciona um telefone e associa para um contato existente.</li>
+        <li>Todos os itens cadastrados podem ser listados, atualizados ou deletados, com exceção do ID correspondente.</li>
+        <li>Um contato não pode ser deletado caso possua um telefone associado.</li>     
+        <li>Uma busca por nomes pode ser realizada na tela de contatos</li>
+    </ul>
+</div>
