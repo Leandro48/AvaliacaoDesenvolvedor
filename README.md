@@ -12,6 +12,7 @@ Este projeto permite um CRUD completo das informações requeridas, além de per
     Uma busca por nomes pode ser realizada na tela de contatos.
     
 ###### Como configurar o banco:
+    Abrir o Console do Gerenciador de Pacotes
     Utilizar o comando update-database via console no visual studio para que as tabelas e relacionamentos sejam criadas.
     
 ###### Instalações necessárias via NuGet:
