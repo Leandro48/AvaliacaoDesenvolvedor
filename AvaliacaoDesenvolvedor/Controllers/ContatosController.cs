@@ -18,12 +18,6 @@ namespace AvaliacaoDesenvolvedor.Controllers
             _context = context;
         }
 
-        // GET: Contatos
-        /*public async Task<IActionResult> Index()
-        {
-            return View(await _context.Contatos.ToListAsync());
-        }*/
-
         public async Task<IActionResult> Index(string nome)
         {
             var nomes = from m in _context.Contatos select m;
