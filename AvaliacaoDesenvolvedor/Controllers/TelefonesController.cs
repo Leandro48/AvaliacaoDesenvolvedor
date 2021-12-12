@@ -59,21 +59,14 @@ namespace AvaliacaoDesenvolvedor.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Numero,ContatoId")] Telefone telefone)
         {
-            if (Regex.Match(telefone.Numero, @"^\d{5}-\d{4}$").Success)
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    _context.Add(telefone);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
+                _context.Add(telefone);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "O número de telefone deve estar no formato #####-####!");
-            }
-                ViewData["ContatoId"] = new SelectList(_context.Contatos, "Id", "Nome", telefone.ContatoId);
-                return View(telefone);
+            ViewData["ContatoId"] = new SelectList(_context.Contatos, "Id", "Nome", telefone.ContatoId);
+            return View(telefone);
         }
 
         // GET: Telefones/Edit/5
@@ -104,32 +97,26 @@ namespace AvaliacaoDesenvolvedor.Controllers
             {
                 return NotFound();
             }
-            if (Regex.Match(telefone.Numero, @"^\d{5}-\d{4}$").Success)
+
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                try
                 {
-                    try
-                    {
-                        _context.Update(telefone);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!TelefoneExists(telefone.Id))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
+                    _context.Update(telefone);
+                    await _context.SaveChangesAsync();
                 }
-            }
-            else
-            {
-                ModelState.AddModelError(string.Empty, "O número de telefone deve estar no formato #####-####!");
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TelefoneExists(telefone.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
             }
             ViewData["ContatoId"] = new SelectList(_context.Contatos, "Id", "Nome", telefone.ContatoId);
             return View(telefone);

@@ -8,7 +8,7 @@ namespace AvaliacaoDesenvolvedor.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "O campo nome é obrigatório")]
         [MaxLength(50)]
         public string Nome { get; set; }
         public List<Telefone> Telefones { get; set; }
