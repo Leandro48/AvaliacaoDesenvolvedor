@@ -13,7 +13,7 @@ Este projeto permite um CRUD completo das informações requeridas, além de per
     
 ###### Como configurar o banco:
     Abrir o Console do Gerenciador de Pacotes
-    Utilizar o comando update-database via console no visual studio para que as tabelas e relacionamentos sejam criadas.
+    Utilizar o comando Update-Database via console no visual studio para que as tabelas e relacionamentos sejam criadas.
     
 ###### Instalações necessárias via NuGet:
     Microsoft.EntityFrameworkCore.SqlServer 3.0.0
